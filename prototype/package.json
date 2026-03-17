@@ -1,8 +1,8 @@
 {
-  "name": "prototype",
+  "name": "hotelia",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Hotelia — Plataforma Central Hotelera de Nueva Generación",
+  "private": true,
   "scripts": {
     "dev": "next dev --port 3000",
     "build": "next build",
