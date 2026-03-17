@@ -555,3 +555,329 @@
 │  TIEMPO OBJETIVO: < 30 minutos para conciliación diaria        │
 └─────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Flujo 11: Revenue Manager — Ajustar Tarifas y Restricciones
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│        AJUSTAR TARIFAS Y RESTRICCIONES                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  1. REVISAR DASHBOARD DE REVENUE                                │
+│     ├── OTB (on-the-books) por fecha: ocupación, ADR, RevPAR   │
+│     ├── Pick-up últimos 7 días por segmento                     │
+│     ├── Pace vs año anterior por fecha                          │
+│     ├── Forecast de ocupación a 30/60/90 días                   │
+│     ├── Alertas: fechas con baja demanda, overbooking riesgo   │
+│     └── Identificar fechas que requieren acción                 │
+│                                                                 │
+│  2. ABRIR CALENDARIO TARIFARIO                                  │
+│     ├── Vista mensual con tarifa actual por tipo × fecha        │
+│     ├── Colores: por encima/debajo de floor rate                │
+│     ├── Indicadores de restricciones activas por fecha          │
+│     └── Comparativo con tarifa del año anterior                 │
+│                                                                 │
+│  3. SELECCIONAR RANGO DE FECHAS                                 │
+│     ├── Click + drag para seleccionar rango                     │
+│     ├── O seleccionar fechas específicas (multi-select)         │
+│     └── Panel lateral muestra detalle de las fechas             │
+│                                                                 │
+│  4. APLICAR CAMBIOS                                             │
+│     ├── Ajustar tarifa por tipo (% o monto absoluto)            │
+│     ├── Aplicar restricciones:                                  │
+│     │   ├── Minimum Length of Stay (MinLOS)                     │
+│     │   ├── Close to Arrival (CTA)                              │
+│     │   ├── Close to Departure (CTD)                            │
+│     │   ├── Stop Sell por tipo y/o canal                        │
+│     │   └── Maximum Length of Stay (MaxLOS)                     │
+│     ├── Cada cambio muestra preview de impacto                  │
+│     └── Aplicar a todos los canales o canales específicos       │
+│                                                                 │
+│  5. CONFIRMAR Y PUBLICAR                                        │
+│     ├── Resumen de cambios con impacto proyectado              │
+│     ├── Confirmar → cambios se aplican inmediatamente           │
+│     ├── CRS sincroniza con channel managers (< 30 seg)          │
+│     └── Registro en bitácora: quién, qué, cuándo, motivo       │
+│                                                                 │
+│  TIEMPO OBJETIVO: < 5 minutos para ajuste de rango             │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Flujo 12: Cotización de Evento (Wedding Planner)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              COTIZAR EVENTO (BODA)                               │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  1. RECIBIR SOLICITUD EN CRM                                    │
+│     ├── Wedding planner contacta al ejecutivo de ventas         │
+│     ├── Crear oportunidad en pipeline: tipo "Boda"              │
+│     ├── Datos: fecha deseada, # asistentes, habitaciones, etc.  │
+│     └── Asignar ejecutivo responsable                           │
+│                                                                 │
+│  2. VERIFICAR DISPONIBILIDAD                                    │
+│     ├── Calendario de salones: ¿hay salón disponible?           │
+│     ├── Calendar view: ¿hay habitaciones disponibles?           │
+│     ├── Verificar que no hay conflicto con otros eventos        │
+│     └── Revenue: ¿displacement analysis favorable?              │
+│                                                                 │
+│  3. ARMAR COTIZACIÓN                                            │
+│     ├── Seleccionar template de cotización "Boda"               │
+│     ├── HABITACIONES:                                           │
+│     │   ├── # de habitaciones por tipo                          │
+│     │   ├── Tarifa negociada por tipo                           │
+│     │   ├── Plan alimenticio                                    │
+│     │   ├── Cortesías (1x20, suite nupcial)                    │
+│     │   └── Early check-in / late check-out                    │
+│     ├── EVENTO:                                                 │
+│     │   ├── Salón + configuración (banquete, 200 pax)          │
+│     │   ├── Menú: cena de gala + cóctel de bienvenida          │
+│     │   ├── Barra abierta: premium 5 horas                     │
+│     │   ├── Equipo: audio, DJ, iluminación especial            │
+│     │   ├── Decoración: centro de mesa, mantelería especial    │
+│     │   └── Montaje + desmontaje                               │
+│     ├── EXTRAS:                                                 │
+│     │   ├── Ensayo de cena (noche anterior)                    │
+│     │   ├── Brunch día siguiente                               │
+│     │   ├── Spa para novia + damas                             │
+│     │   └── Amenidades VIP en suite nupcial                    │
+│     └── Sistema calcula total automáticamente                   │
+│                                                                 │
+│  4. REVISAR Y AJUSTAR                                           │
+│     ├── Preview de cotización en formato PDF elegante           │
+│     ├── Ajustar descuentos con autorización del director        │
+│     ├── Agregar notas y condiciones                             │
+│     ├── Definir calendario de depósitos                         │
+│     └── Versión: v1 (puede haber v2, v3 por negociación)       │
+│                                                                 │
+│  5. ENVIAR                                                      │
+│     ├── Enviar por email desde sistema                          │
+│     ├── PDF profesional con branding del hotel                  │
+│     ├── Seguimiento automático (recordatorio en 48h si no hay   │
+│     │   respuesta)                                              │
+│     └── Oportunidad pasa a etapa "Cotización enviada"          │
+│                                                                 │
+│  6. [SI ACEPTA] CONFIRMAR                                       │
+│     ├── Cotización → Confirmada                                 │
+│     ├── Crear grupo con bloqueo de habitaciones automático      │
+│     ├── Crear evento con booking de salón                       │
+│     ├── Generar BEO para operaciones                            │
+│     ├── Generar contrato para firma                             │
+│     ├── Registrar primer depósito                               │
+│     └── Todo conectado: grupo + evento + salón + folio maestro  │
+│                                                                 │
+│  TIEMPO OBJETIVO: < 30 minutos para cotización completa        │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Flujo 13: Housekeeping — Turno Completo de Camarista
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│           TURNO DE CAMARISTA (APP MÓVIL)                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  1. INICIAR TURNO                                               │
+│     ├── Camarista abre app en su teléfono                       │
+│     ├── Login con PIN (4 dígitos)                               │
+│     ├── Ve su lista de habitaciones asignadas del día           │
+│     ├── Ordenadas por prioridad:                                │
+│     │   🔴 Check-in inminente (llega en 2h)                    │
+│     │   🟠 VIP / Early check-in                                │
+│     │   🟡 Salida del día (check-out)                          │
+│     │   🟢 Estancia (stay-over)                                │
+│     └── Total de créditos del día y tiempo estimado             │
+│                                                                 │
+│  2. LIMPIAR HABITACIÓN                                          │
+│     ├── Tocar habitación → ver detalle:                         │
+│     │   ├── Tipo de servicio (salida/estancia/VIP/deep clean)  │
+│     │   ├── Notas especiales (alergia, bebé, accesible)        │
+│     │   ├── Próximo huésped: nombre, hora de llegada, plan     │
+│     │   └── # de adultos y niños                               │
+│     ├── Marcar "Inicio de limpieza" → timer empieza            │
+│     ├── Realizar limpieza según protocolo                       │
+│     └── Marcar "Limpieza terminada"                             │
+│                                                                 │
+│  3. REPORTAR (durante o después de limpieza)                    │
+│     ├── ¿Desperfecto encontrado?                                │
+│     │   └── Tomar foto → seleccionar categoría → crear ticket  │
+│     │       de mantenimiento automáticamente                    │
+│     ├── ¿Objeto olvidado?                                       │
+│     │   └── Tomar foto → descripción → registrar en lost&found │
+│     ├── ¿Consumo de minibar?                                    │
+│     │   └── Seleccionar productos → cargo automático a folio   │
+│     └── ¿Discrepancia? (habitación marcada vacía pero ocupada  │
+│         o viceversa)                                            │
+│         └── Reportar → alerta a recepción                      │
+│                                                                 │
+│  4. MARCAR ESTATUS                                              │
+│     ├── "Limpia" → habitación disponible para asignar           │
+│     ├── "Necesita inspección" → notifica a supervisora          │
+│     └── "Pendiente" → con motivo (falta material, ocupada)     │
+│                                                                 │
+│  5. INSPECCIÓN (supervisora)                                    │
+│     ├── Supervisora recibe notificación                         │
+│     ├── Inspecciona con checklist digital                       │
+│     ├── Aprobada ✓ → estatus "Inspeccionada"                   │
+│     └── Rechazada ✗ → nota de observaciones → vuelve a limpieza│
+│                                                                 │
+│  6. FIN DE TURNO                                                │
+│     ├── Ver resumen del día:                                    │
+│     │   ├── Habitaciones limpiadas: 14                          │
+│     │   ├── Créditos completados: 18 de 20                     │
+│     │   ├── Tiempo promedio: 28 min/habitación                 │
+│     │   ├── Inspecciones aprobadas: 12 de 14                   │
+│     │   └── Tickets reportados: 2                               │
+│     └── Cerrar turno                                            │
+│                                                                 │
+│  TIEMPO OBJETIVO: toda interacción con app < 30 segundos       │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Flujo 14: Compra de Insumos (Requisición → Recepción)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│           COMPRA DE INSUMOS                                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  1. REQUISICIÓN                                                 │
+│     ├── Chef ejecutivo detecta que necesita insumos             │
+│     ├── Abre requisición en sistema:                            │
+│     │   ├── Selecciona productos del catálogo                   │
+│     │   ├── Cantidad requerida                                  │
+│     │   ├── Fecha necesaria                                     │
+│     │   ├── Almacén destino (cocina central)                   │
+│     │   └── Justificación                                       │
+│     ├── Sistema muestra: existencia actual, mínimo, sugerido   │
+│     └── Enviar requisición → va a aprobación                    │
+│                                                                 │
+│  2. APROBACIÓN                                                  │
+│     ├── Gerente de A&B recibe notificación                      │
+│     ├── Revisa requisición:                                     │
+│     │   ├── ¿Es necesario? ¿Presupuesto disponible?           │
+│     │   ├── ¿Hay existencia en otro almacén? (sugerir traspaso)│
+│     │   └── ¿Monto requiere doble aprobación?                  │
+│     ├── Aprueba → va a compras                                  │
+│     └── Rechaza → notifica al solicitante con motivo            │
+│                                                                 │
+│  3. ORDEN DE COMPRA                                             │
+│     ├── Compras recibe requisición aprobada                     │
+│     ├── Sistema sugiere proveedores por producto:               │
+│     │   ├── Proveedor habitual + último precio                  │
+│     │   ├── Alternativas con comparativo de precio              │
+│     │   └── Evaluación del proveedor (calidad, cumplimiento)   │
+│     ├── Crear OC:                                               │
+│     │   ├── Seleccionar proveedor                               │
+│     │   ├── Confirmar cantidades y precios                      │
+│     │   ├── Fecha de entrega solicitada                         │
+│     │   └── Condiciones de pago                                 │
+│     ├── Si monto > umbral → requiere aprobación de contralor   │
+│     └── OC aprobada → enviar al proveedor (email/PDF)          │
+│                                                                 │
+│  4. RECEPCIÓN DE MERCANCÍA                                      │
+│     ├── Almacenista recibe mercancía                            │
+│     ├── Buscar OC en sistema (por # de OC o proveedor)         │
+│     ├── Registrar recepción:                                    │
+│     │   ├── Cantidad recibida por producto                      │
+│     │   ├── Condición (aceptado/rechazado/parcial)             │
+│     │   ├── Número de factura del proveedor                     │
+│     │   └── Notas (faltante, daño, sustitución)                │
+│     ├── Sistema valida: recibido vs ordenado                    │
+│     ├── Entrada automática al inventario del almacén destino   │
+│     └── CxP generada automáticamente con asiento contable       │
+│                                                                 │
+│  5. RESULTADO                                                   │
+│     ├── Inventario actualizado en tiempo real                   │
+│     ├── Costo promedio recalculado                              │
+│     ├── CxP registrada con vencimiento                         │
+│     ├── Póliza contable automática:                             │
+│     │   Debit:  Inventario Alimentos    $15,000                │
+│     │   Debit:  IVA Acreditable          $2,400                │
+│     │   Credit: Proveedores             $17,400                │
+│     └── Trazabilidad: requisición → OC → recepción → póliza   │
+│                                                                 │
+│  TIEMPO OBJETIVO: < 10 minutos para requisición + OC           │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Flujo 15: Check-out de Grupo
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              CHECK-OUT DE GRUPO                                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  1. PREPARACIÓN (día anterior o temprano)                       │
+│     ├── Revisar lista de habitaciones del grupo                 │
+│     ├── Verificar saldos en subfolios individuales              │
+│     │   ├── Cargos personales (minibar, spa, extras) → huésped │
+│     │   └── Cargos de grupo (hospedaje, A&B) → folio maestro   │
+│     ├── Identificar habitaciones con saldo pendiente personal   │
+│     ├── Verificar que routing de cargos esté correcto           │
+│     └── Alertar a recepción de habitaciones con pendientes      │
+│                                                                 │
+│  2. CHECK-OUT INDIVIDUAL (cada habitación del grupo)            │
+│     ├── Huésped llega a recepción                               │
+│     ├── Recepcionista abre su subfolio:                         │
+│     │   ├── Cargos personales: $2,300 (minibar + spa)          │
+│     │   ├── Cargos de grupo (ruteados): $0 (va al maestro)    │
+│     │   └── Saldo personal: $2,300                              │
+│     ├── Cobrar saldo personal (tarjeta, efectivo)               │
+│     ├── ¿Necesita factura personal?                             │
+│     │   ├── Sí → generar CFDI por cargos personales            │
+│     │   └── No → recibo simple                                  │
+│     ├── Cerrar subfolio                                         │
+│     ├── Check-out → habitación a housekeeping                   │
+│     └── Express check-out disponible (folio por email)          │
+│                                                                 │
+│  3. CHECK-OUT MASIVO (opcional)                                  │
+│     ├── Si el grupo sale junto: check-out masivo                │
+│     ├── Seleccionar todas las habitaciones del grupo            │
+│     ├── Verificar que no hay saldos personales pendientes       │
+│     ├── Ejecutar check-out masivo en un clic                    │
+│     └── Todas las habitaciones van a housekeeping               │
+│                                                                 │
+│  4. CIERRE DE FOLIO MAESTRO                                     │
+│     ├── Revisar folio maestro del grupo:                        │
+│     │   ├── Total hospedaje: $245,000                           │
+│     │   ├── Total A&B eventos: $120,000                         │
+│     │   ├── Total salones: $35,000                              │
+│     │   ├── Total extras: $18,000                               │
+│     │   ├── Depósitos aplicados: -$150,000                      │
+│     │   └── Saldo pendiente: $268,000                           │
+│     ├── Verificar depósitos aplicados correctamente             │
+│     ├── Ajustes finales (si los hay, con autorización)          │
+│     └── Cerrar folio maestro                                    │
+│                                                                 │
+│  5. FACTURACIÓN DEL GRUPO                                       │
+│     ├── Generar factura consolidada a la empresa/agencia:       │
+│     │   ├── Datos fiscales de la cuenta (precargados del CRM)  │
+│     │   ├── Desglose por concepto (hospedaje, A&B, salón, etc)│
+│     │   ├── Aplicar condiciones de pago (crédito 30 días)      │
+│     │   └── Timbrar CFDI                                        │
+│     ├── Enviar factura por email                                │
+│     ├── Saldo registrado en CxC con fecha de vencimiento       │
+│     └── Póliza contable automática                              │
+│                                                                 │
+│  6. SEGUIMIENTO POST-GRUPO                                      │
+│     ├── Revenue: actualizar producción real del grupo           │
+│     ├── CRM: registrar resultado en la cuenta                  │
+│     ├── Ventas: actualizar producción del ejecutivo             │
+│     └── BI: métricas del grupo disponibles para análisis       │
+│                                                                 │
+│  TIEMPO OBJETIVO: < 2 min por check-out individual             │
+│                    < 15 min para cierre de folio maestro         │
+└─────────────────────────────────────────────────────────────────┘
+```
